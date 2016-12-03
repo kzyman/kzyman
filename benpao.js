@@ -52,8 +52,8 @@ $timeout(function(){
   var score_list = []
   var time_limit = 30 * 1000;
   if(LGlobal.canTouch){
-		LGlobal.stageScale = LStageScaleMode.EXACT_FIT;
-		LSystem.screen(LStage.FULL_SCREEN);
+        LGlobal.stageScale = LStageScaleMode.EXACT_FIT;
+        LSystem.screen(LStage.FULL_SCREEN);
 	}
 	loadData = [
    	{name:"back",path:"http://s2.d2scdn.com/2016/11/13/Fq5fa3CAkFLyhiYiYY1QRVtxEVds.png"},
@@ -72,21 +72,21 @@ $timeout(function(){
 
 ];
 
-  
-		function main(){
+ 
+	function main(){
     	var loadsound = true;
     	var protocol = location.protocol;
     	loadData.push({name : "sound_background",path : "http://s2.d2scdn.com/2016/11/19/FhyrM2U-jykBeb-SpHMJskGg8I6P.mp3"});
     	loadData.push({name : "sound_good",path : "http://s2.d2scdn.com/2016/11/19/FhT0iYP7o9ZqB7CtbIa5vRfEWrk-.mp3"});
     	loadData.push({name : "sound_bad",path : "http://s2.d2scdn.com/2016/11/22/FiwIFkB16Y-dQEaKXkL58LaJFJuk.mp3"});
 
-		  LMouseEventContainer.set(LMouseEvent.MOUSE_UP,true);
-		  LMouseEventContainer.set(LMouseEvent.MOUSE_DOWN,true);
-		  LMouseEventContainer.set(LMouseEvent.MOUSE_MOVE,true);
-			LLoadManage.load(loadData,null,gameInit);
+          LMouseEventContainer.set(LMouseEvent.MOUSE_UP,true);
+          LMouseEventContainer.set(LMouseEvent.MOUSE_DOWN,true);
+          LMouseEventContainer.set(LMouseEvent.MOUSE_MOVE,true);
+                LLoadManage.load(loadData,null,gameInit);
 		};
 		
-		function gameInit(result){
+        function gameInit(result){
     	imglist = result;
     	
     	backLayer = new LSprite();
@@ -278,7 +278,7 @@ $timeout(function(){
     }
 		function onUp(event){
     }
-    function tishi1(){
+    function tishi1(){//提示手势
       tishi1_done = true
       has_tishi1 = true
       game_stop = true
@@ -292,7 +292,7 @@ $timeout(function(){
       backLayer.addChild(tishi1)
 
     }
-    function tishi2(){
+    function tishi2(){ //提示手势
       tishi2_done = true
       has_tishi2 = true
       game_stop = true
@@ -307,7 +307,7 @@ $timeout(function(){
       
       // game_stop = false
     }
-		function onframe1 (event){
+     function onframe1 (event){
       if (!game_stop){
 		    time_limit = 30 * 1000 - new Date().getTime() + startTime
     
@@ -406,39 +406,39 @@ $timeout(function(){
 
       
     }
-		function addText(){
-			hpTxt = new LTextField();
-			hpTxt.color = "white";
-			hpTxt.weight = "bolder"
-			hpTxt.size = 15*ratio;
-			hpTxt.x = g_rem*5;
-			hpTxt.y = 10;
-			backLayer.addChild(hpTxt);
-			
-			pointTxt = new LTextField();
-			pointTxt.color = "white";
-			pointTxt.weight = "normal";
-			pointTxt.size = 15*ratio;
-			pointTxt.x = g_rem*3;
-			pointTxt.y = 40;
-			backLayer.addChild(pointTxt);
-			
-			timeTxt = new LTextField();
-			timeTxt.color = "white";
-			timeTxt.weight = "normal"
-			timeTxt.size = 25*ratio;
-			timeTxt.x = g_rem*5;
-			timeTxt.y = 50;
-			backLayer.addChild(timeTxt);
-			showText();
+        function addText(){
+                hpTxt = new LTextField();
+                hpTxt.color = "white";
+                hpTxt.weight = "bolder"
+                hpTxt.size = 15*ratio;
+                hpTxt.x = g_rem*5;
+                hpTxt.y = 10;
+                backLayer.addChild(hpTxt);
+
+                pointTxt = new LTextField();
+                pointTxt.color = "white";
+                pointTxt.weight = "normal";
+                pointTxt.size = 15*ratio;
+                pointTxt.x = g_rem*3;
+                pointTxt.y = 40;
+                backLayer.addChild(pointTxt);
+
+                timeTxt = new LTextField();
+                timeTxt.color = "white";
+                timeTxt.weight = "normal"
+                timeTxt.size = 25*ratio;
+                timeTxt.x = g_rem*5;
+                timeTxt.y = 50;
+                backLayer.addChild(timeTxt);
+                showText();
 		}
-		function showText(){
-  		hpTxt.text = "时间";
-  		pointTxt.text = point;
-  		var str = time_limit + "";
-  		if (time_limit>0 && time_limit <1000){
-  		  timeTxt.text = "0" + str.substr(0,str.length - 3) + "." + str.substr(str.length - 3,2);
-  		}
+        function showText(){
+                hpTxt.text = "时间";
+                pointTxt.text = point;
+                var str = time_limit + "";
+                if (time_limit>0 && time_limit <1000){
+                  timeTxt.text = "0" + str.substr(0,str.length - 3) + "." + str.substr(str.length - 3,2);
+        }
   		else if (time_limit>0){
 	      timeTxt.text = str.substr(0,str.length - 3) + "." + str.substr(str.length - 3,2);}
 	    else{
